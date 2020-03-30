@@ -1,0 +1,132 @@
+\documentclass[french]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\title{Projet Toboggan Abel}
+\author{Gabriel Navarre}
+\date{Mars 2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{amsthm}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+
+\section{Cas particulier de la transformée d'Abel, $\alpha = \frac{1}{2}$ }
+\newtheorem{thmv}{Théorème}
+\begin{thmv}[Transformée d'Abel]
+Soit $\mathcal{A}$ l'opérateur linéaire définie pour toute fonction u continue de $[a,b]$ dans $\mathbbm{R}$ tel que :\newline
+\begin{center}
+    \begin{equation}
+        \forall y \in ]a,b] : \mathcal{A}u(y)=\int\limits_{a}^{y}\frac{u(x)}{\sqrt{y-x}}\mathrm{d}x
+    \end{equation}
+\end{center}
+ainsi que $\mathcal{A}u(0) = 0$. Alors :
+\begin{center}
+    \begin{equation}
+        \forall y \in [a,b] : \mathcal{A}\mathcal{A}u(y)=\pi\int\limits_{a}^{y}u(x)\mathrm{d}x
+    \end{equation}
+\end{center}
+\end{thmv}
+\begin{proof}
+En réécrivant (2) à l'aide de (1), on obtient :
+\begin{center}
+    \begin{equation}
+        \mathcal{A}\mathcal{A}u(y)=\int\limits_{a}^{y}\frac{1}{\sqrt{y-z}}[\int\limits_{a}^{z}\frac{u(x)}{\sqrt{z-x}}\mathrm{d}x]\mathrm{d}z
+    \end{equation}
+\end{center}
+On utilisera alors le théorème de Fubini ramener au cas des intégrales de Riemann :
+\newpage
+\newtheorem*{thmv2}{Théorème}
+\begin{thmv2}[Fubini-Lebesgue]
+Soient (X,$\mathcal{S},\mu$) et (Y,$\mathcal{T},\nu$) deux espaces mesurés complets et $(X\times Y,\mathcal{S}\times\mathcal{T},\xi)$ l'espace mesurable produit munit d'une mesure produit $\xi$. Si
+\begin{center}
+    $f : X \times Y \to \mathbbm{R}$
+\end{center}
+est $\xi$-intégrable, alors les fonctions :
+\begin{center}
+    $x\mapsto\int_{Y}f(x,y)\mathrm{d}\nu(y)$ et $y\mapsto\int_{X}f(x,y)\mathrm{d}\mu(x)$
+\end{center}
+sont respectivement $\mu-$ et $\nu-$intégrables et on a l'égalité :
+\begin{center}
+    $\int_{X\times Y}f(x,y)\mathrm{d}\xi(x,y) = \int_{X}[\int_{Y}f(x,y)\mathrm{d}\nu(y)]\mathrm{d}\mu(x) = \int_{Y}[\int_{X}f(x,y)\mathrm{d}\mu(x)]\mathrm{d}\nu(y)$
+\end{center}
+\ \\
+\end{thmv2}
+\ \\
+On peut alors réécrire (3) et lui appliquer le précédent théorème tel que :
+\begin{center}
+    $\int\limits_{a}^{y}\frac{1}{\sqrt{y-z}}[\int\limits_{a}^{z}\frac{u(x)}{\sqrt{z-x}}\mathrm{d}x]\mathrm{d}z=\int\limits_{a}^{y}\int\limits_{a}^{z}\frac{u(x)}{\sqrt{y-z}\sqrt{z-x}}\mathrm{d}x\mathrm{d}z$\\
+    \ \\
+    \hspace{4,1cm}$=\int\limits_{a}^{y}[\int\limits_{x}^{y}\frac{1}{\sqrt{y-z}\sqrt{z-x}}\mathrm{d}z]u(x)\mathrm{d}x$
+\end{center}
+On va donc prouver que :\begin{equation}
+    \int\limits_{x}^{y}\frac{1}{\sqrt{y-z}\sqrt{z-x}}\mathrm{d}z=\pi\end{equation}\\
+Développons alors l'intégrale de (4) :
+\begin{center}
+    $\int\limits_{x}^{y}\frac{1}{\sqrt{y-z}\sqrt{z-x}}\mathrm{d}z=\int\limits_{x}^{y}\frac{1}{\sqrt{(y-z)(z-x)}}$\\
+    \ \\
+    \hspace{3,3cm}$=\int\limits_{x}^{y}\frac{1}{\sqrt{-z^2+(x+y)z-xy}}\mathrm{d}z$
+\end{center}
+Considérons ensuite l'équation du second degré en z suivante que l'on passera sous forme canonique :
+\begin{center}
+    $-z^2+(x+y)z-xy$\\
+    $\Delta=(x+y)^2-4xy=(x-y)^2$\\
+    \ \\
+    $-z^2+(x+y)z-xy=-\bigl(z-\frac{(x+y)}{2}\bigr)^2+\frac{(x-y)^2}{4}$
+\end{center}
+\newpage
+On peut alors réécrire l'intégrale dévoloppé de (4) tel que :
+\begin{center}
+    $\int\limits_{x}^{y}\frac{1}{\sqrt{-z^2+(x+y)z-xy}}\mathrm{d}z=\int\limits_{x}^{y}\frac{1}{\sqrt{\frac{(x-y)^2}{4}-\bigl(z-\frac{(x+y)}{2}\bigr)^2}}\mathrm{d}z$\\
+    \hspace{4.5cm}$=\int\limits_{x}^{y}\frac{1}{\sqrt{\frac{(x-y)^2}{4}\Bigl(1-\frac{4}{(x-y)^2}\bigl(z-\frac{(x+y)}{2}\bigr)^2\Bigr)}}\mathrm{d}z$\\
+    \hspace{4cm}$=\int\limits_{x}^{y}\frac{1}{\sqrt{\frac{(x-y)^2}{4}\Bigl(1-\bigl(\frac{2z}{x-y}-\frac{x+y}{x-y}\bigr)^2\Bigr)}}\mathrm{d}z$\\
+    \hspace{3.8cm}$=\int\limits_{x}^{y}\frac{2}{\mid x-y\mid\sqrt{\Bigl(1-\bigl(\frac{2z}{x-y}-\frac{x+y}{x-y}\bigr)^2\Bigr)}}\mathrm{d}z$\\
+    \hspace{3.6cm}$=\int\limits_{x}^{y}\frac{2}{\mid x-y\mid\sqrt{\Bigl(1-\bigl(\frac{2z-x-y}{x-y}\bigr)^2\Bigr)}}\mathrm{d}z$\\
+\end{center}
+\ \\
+On remarquera alors que le seul terme dépendant de z ici est $\gamma(z)=\frac{2z-x-y}{x-y}$ et que lorsque z varie sur l'intervalle [x,y], $\gamma(z)$ lui, varie sur l'interalle [-1,1].\\
+Mettons alors en place le changement de variable tel que :
+\begin{center}
+    $\gamma(z)=\sin(u)\iff\frac{2z-x-y}{x-y}=\sin(u)$\\
+    \hspace{4cm}$\iff2z-(x+y)=(x-y)\sin(u)$\\
+    \hspace{4cm}$\iff2z=(x-y)\sin(u)+(x+y)$\\
+    \hspace{4.5cm}$\iff z=\frac{(x-y)}{2}\sin(u)+\frac{(x+y)}{2}=\zeta(u)$
+\end{center}
+De plus, on a :
+\begin{center}
+    $\mathrm{d}z=\zeta'(u)\mathrm{d}u=\frac{(x-y)}{2}\cos(u)\mathrm{d}u$
+\end{center}
+Mais aussi, on va détérminer $u_{1}$ et $u_{2}$ tel que $x=\zeta(u_{1})$ et $y=\zeta(u_{2})$.\\
+Autrement dit :
+\begin{center}
+    $x=\frac{(x-y)}{2}\sin(u_{1})+\frac{(x+y)}{2}\iff\frac{2x-x-y}{2}=\frac{(x-y)}{2}\sin(u_{1})$\\
+    \hspace{3.7cm}$\iff\frac{(x-y)}{2}\frac{2}{(x-y)}=\sin(u_{1})$\\
+    \hspace{4.3cm}$\iff\sin(u_{1})=1\iff u_{1}=\frac{\pi}{2}$\\
+    \ \\
+    $y=\frac{(x-y)}{2}\sin(u_{2})+\frac{(x+y)}{2}\iff\frac{2y-x-y}{2}=\frac{(x-y)}{2}\sin(u_{2})$\\
+    \hspace{3.9cm}$\iff-\frac{(x-y)}{2}\frac{2}{(x-y)}=\sin(u_{2})$\\
+    \hspace{4.8cm}$\iff\sin(u_{2})=-1\iff u_{2}=-\frac{\pi}{2}$
+\end{center}
+\newpage
+On obtient alors :
+\begin{center}
+    $\int\limits_{x}^{y}\frac{2}{\mid x-y\mid}\frac{1}{\sqrt{\Bigl(1-\bigl(\frac{2z-x-y}{x-y}\bigr)^2\Bigr)}}\mathrm{d}z=\int\limits_{\frac{\pi}{2}}^{-\frac{\pi}{2}}\frac{2}{\mid x-y\mid}\frac{\mid x-y\mid}{2}\frac{\cos(u)}{\sqrt{1-\sin^2(u)}}\mathrm{d}u$\\
+    $=\int\limits_{\frac{\pi}{2}}^{-\frac{\pi}{2}}\frac{\cos(u)}{\sqrt{\cos^2(u)}}\mathrm{d}z$
+\end{center}
+On utilisera ici que $\forall u\in\mathbbm{R}, 1-\sin^2(u)=\cos^2(u)$ et que $\forall u\in[-\frac{\pi}{2},\frac{\pi}{2}], \cos(u)\geq0$, ce qui nous donne :
+\begin{center}
+    $=\int\limits_{\frac{\pi}{2}}^{-\frac{\pi}{2}}1\ \mathrm{d}z=\pi$
+\end{center}
+Ce qui nous donne bien que : $\forall y\in[a,b] : \mathcal{A}\mathcal{A}u(y)=\pi\int\limits_{a}^{y}u(x)\mathrm{d}x$\\
+\ \\
+\end{proof}
+
+\bibliographystyle{plain}
+\end{document}
