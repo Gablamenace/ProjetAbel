@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass[french]{article}
+ 
+\usepackage{babel}
+Lemme : Supposons V : $[−a,0] \to [0,E_0]$ de classe $C^1$ avec, $\forall  x \in [−a,0],\newline V'(x) \leq 0$. Si W est la fonction inverse1 de V (W peut alors avoir des sauts), alors, pour tout E non critique:\[ \tau(E) = \int_{0}^{E} \frac{dW(u)}{\sqrt{E-u}} \]
+\\
+Preuve~: On va supposer qu'il y a un nombre fini de palier et on considère une subdivision de l'intervalle [-a,0] correspondant aux paliers : \[-a\leq x_1\leq y_1 < x_2 \leq y_2 < \ldots < x_n \leq y_n \leq 0 \]
+où V' s'annule sur les intervalles $\left[x_i,y_i \right]$. On note $E_i = V(x_i)$. On part d’une valeur d’énergie E = $V(x(0))$ non critique. $V'(x)\neq 0$ au voisinage de $x(0)$
+Initialement, le mobile prend donc de la vitesse; il arrive en $x=x_i$ avec une vitesse $v$ qu’il va conserver pendant toute la traversée du palier. On calcule $v$ par : $v^2 + V(x_i) = v^2 + E_i = E$, on obtient donc :
+\[v^2=E-E_i~ \Leftrightarrow~v=\sqrt{E-E_i}\] on en déduit la durée $ \tau_i$ de la traversée d'un palier : \[\tau_i=\frac{y_i-x_i}{\sqrt{E-E_i}}\] qu'on écrit aussi en utilisant la fonction inverse $W=V^{-1}$ :
+\[\tau_i=\frac{W(E_i^-)-W(E_i^+)}{\sqrt{E-E_i}}=-\frac{W(E_i^+)-W(E_i^-)}
+{\sqrt{E-E_i}}\]
+On observe maintenant comment le mobile se déplace entre 2 paliers. Supposons que $y_i$ est la fin d'un palier et $x_{i+1}$ le début du palier suivant. On se place sur un segment $[r,s] \subset~ ]y_i,x_{i+1}[$. On a le temps $\tau(r,s)$ pour parcourir l'intervalle :\[\tau_i=\int_{r}^{s} \frac{dx}{\sqrt{E-V(x)}}\]
+On a, sur cet intervalle, la fonction réciproque $W$ qui est $C^1$, donc on effectue un changement de variable $V(x)=u$ donc $W(u)=x$ et on a $dx=W'(u)du$ ; et en changeant les bornes on obtient :\[\tau_i=\int_{E_r}^{E_s} \frac{W'(u)du}{\sqrt{E-u}} =-\int_{E_s}^{E_r} \frac{W'(u)du}{\sqrt{E-u}}\]
+Lorsque $r$ tend vers $y_i$ et que $s$ tend vers $x_{i+1}$ l'intégrale est convergente. On a en effet $W'$ négative et intégrable sur l'intervalle $]E_{i+1},E_i[$ et de plus
+
+\end{document}
