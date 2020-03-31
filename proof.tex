@@ -28,11 +28,11 @@
   $f=f_{1}-f_{2}$ et on on déduit donc
   $\mathrm{d}f=\mathrm{d}f_{1}-\mathrm{d}f_{2}$. Ainsi, la formule (1) s'écrit :
   \begin{align*}
-    u(x)=\frac{1}{\Gamma(1-\alpha)} \left\{ \int\limits_{a-0}^{x}\frac{\mathrm{d}f_{1}{t}}{(x-t)^\alpha}-\int\limits_{a-0}^{x}\frac{\mathrm{d}f_{2}{t}}{(x-t)^\alpha} \right\}
+    u(x)=\frac{1}{\Gamma(1-\alpha)} \left\{ \int\limits_{a-0}^{x}\frac{\mathrm{d}f_{1}(t)}{(x-t)^\alpha}-\int\limits_{a-0}^{x}\frac{\mathrm{d}f_{2}(t)}{(x-t)^\alpha} \right\}
   \end{align*}
   ce qui nous donne la majoration suivante :
   \begin{equation*}
-    \lvert u(t) \rvert\leq\frac{1}{\Gamma(1-\alpha)} \left\{ \int\limits_{a-0}^{x}\frac{\mathrm{d}f_{1}{t}}{(x-t)^\alpha}+\int\limits_{a-0}^{x}\frac{\mathrm{d}f_{2}{t}}{(x-t)^\alpha} \right\}
+    \lvert u(t) \rvert\leq\frac{1}{\Gamma(1-\alpha)} \left\{ \int\limits_{a-0}^{x}\frac{\mathrm{d}f_{1}{(t)}}{(x-t)^\alpha}+\int\limits_{a-0}^{x}\frac{\mathrm{d}f_{2}{(t)}}{(x-t)^\alpha} \right\}
   \end{equation*}
   Ainsi, pour montrer que u $\in$ $L^1(]a,b[)$ il suffit de montrer que pour
   toute fonction $\varphi$ croissante, bornée, continue à droite sur $[a,b]$,
@@ -52,9 +52,9 @@
   D'où u $\in$ $L^1(]a,b[)$.
   Enfin, on a d'après la preuve de l'unicité de la solution que la fonction
   \begin{equation*}
-    (t,\xi)\to\frac{1}{(x-t)^{1-\alpha}(t-\xi)^{\alpha}}
+    (t,\xi)\to\frac{1}{(x-t)^{1-\alpha}(t-\xi)^{\alpha}} \in L^1(T_{x},\mathrm{d}t \otimes \mathrm{d}\varphi(\xi))
   \end{equation*}
-  pour a, b tels que $a<x<b$ et pour tout $\varphi$ défini comme précédemment.
+  pour $x$ tel que $a<x<b$ et pour tout $\varphi$ défini comme précédemment.
   De plus, on déduit du théorème de Fubini que,
   \begin{multline}
     \frac{1}{\Gamma(\alpha)}\int\limits_{a}^{x} \left\{
