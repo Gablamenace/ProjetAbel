@@ -1,0 +1,68 @@
+\documentclass[french]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{bbm}
+\title{Théorème 1.A.1 Partie 2}
+\author{Ernad Mehinagic}
+\date{July 28th, 1914}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\maketitle
+\section{Théorème}
+\newtheorem{theorem}{Théorème}
+\begin{theorem}
+  Soit a, b $\in$ $\mathbbm{R}$ tels que $a<b$. Alors il existe au plus une
+  solution de l'équation (1.2.1) dans $L^1(]a,b[)$. Par ailleurs, si la fonction f
+  est à variation bornée et continue à droite alors l'équation (1.2.1) possède
+  une solution dans $L^1(]a,b[)$, donnée par
+  \begin{align}
+    u(x)=\frac{1}{\Gamma(1-\alpha)}\int\limits_{a-0}^{x}\frac{\mathrm{d}f(t)}{(x-t)^\alpha}
+  \end{align}
+  définie avec l'intégrale de Steljes.
+\end{theorem}
+\begin{proof}
+  Soit f à variation bornée et continue à droite. Alors il existe deux fonctions
+  $f_{1}$,\ $f_{2}$, croissantes, à variation bornée, continues à droite, telles que
+  $f=f_{1}-f_{2}$ et on on déduit donc
+  $\mathrm{d}f=\mathrm{d}f_{1}-\mathrm{d}f_{2}$. Ainsi, la formule (1) s'écrit :
+  \begin{align*}
+    u(x)=\frac{1}{\Gamma(1-\alpha)} \left\{ \int\limits_{a-0}^{x}\frac{\mathrm{d}f_{1}(t)}{(x-t)^\alpha}-\int\limits_{a-0}^{x}\frac{\mathrm{d}f_{2}(t)}{(x-t)^\alpha} \right\}
+  \end{align*}
+  ce qui nous donne la majoration suivante :
+  \begin{equation*}
+    \lvert u(t) \rvert\leq\frac{1}{\Gamma(1-\alpha)} \left\{ \int\limits_{a-0}^{x}\frac{\mathrm{d}f_{1}{(t)}}{(x-t)^\alpha}+\int\limits_{a-0}^{x}\frac{\mathrm{d}f_{2}{(t)}}{(x-t)^\alpha} \right\}
+  \end{equation*}
+  Ainsi, pour montrer que u $\in$ $L^1(]a,b[)$ il suffit de montrer que pour
+  toute fonction $\varphi$ croissante, bornée, continue à droite sur $[a,b]$,
+  et prolongée par 0 à gauche de a, on a bien
+  \begin{equation*}
+    x \to \int\limits_{a-0}^{x}\frac{\mathrm{d}\varphi(t)}{(x-t)^\alpha} \in L^1(]a,b[)
+  \end{equation*}
+  On a :
+  \begin{multline}
+    \int\limits_{a-0}^{b}\int\limits_{a-0}^{t}\frac{\mathrm{d}\varphi(\xi)}{(t-\xi)^\alpha}\
+    \mathrm{d}t=\int\limits_{a-0}^{b}\int\limits_{\xi}^{b}\frac{\mathrm{d}t}{(t-\xi)^\alpha}\
+    \mathrm{d}\varphi(\xi)=\frac{1}{1-\alpha}\int\limits_{a-0}^{b}(b-\xi)^{1-\alpha}\
+    \mathrm{d}\varphi(\xi)\\
+    \leq\frac{(b-a)^{1-\alpha}}{1-\alpha}\int\limits_{a-0}^{b}\mathrm{d}\varphi(\xi)\leq\frac{(b-a)^{1-\alpha}}{1-\alpha}\
+    \varphi(b)<+\infty
+  \end{multline}
+  D'où u $\in$ $L^1(]a,b[)$.
+  Enfin, on a d'après la preuve de l'unicité de la solution que la fonction
+  \begin{equation*}
+    (t,\xi)\to\frac{1}{(x-t)^{1-\alpha}(t-\xi)^{\alpha}} \in L^1(T_{x},\mathrm{d}t \otimes \mathrm{d}\varphi(\xi))
+  \end{equation*}
+  pour $x$ tel que $a<x<b$ et pour tout $\varphi$ défini comme précédemment.
+  De plus, on déduit du théorème de Fubini que,
+  \begin{multline}
+    \frac{1}{\Gamma(\alpha)}\int\limits_{a}^{x} \left\{
+      \frac{\mathrm{d}t}{(x-t)^{1-\alpha}} \frac{1}{\Gamma(1-\alpha)}
+      \int\limits_{a-0}^{t}\frac{\mathrm{d}\varphi(\xi)}{(t-\xi)^\alpha} \right\}\\
+    =\frac{1}{\Gamma(\alpha)\Gamma(1-\alpha)}\int\limits_{a-0}^{x}\mathrm{d}\varphi(\xi)\int\limits_{\xi}^{x}\frac{\mathrm{d}t}{(x-t)^{1-\alpha}(t-\xi)^{\alpha}}=\varphi(x)
+  \end{multline}
+  Enfin, on utilise (1) pour conclure.
+\end{proof}
+\bibliographystyle{plain}
+\end{document}
